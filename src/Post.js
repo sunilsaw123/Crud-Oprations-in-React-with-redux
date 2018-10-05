@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class Post extends Component {
-    
+   
 render() {
 return (
 <div className="post">
@@ -19,7 +19,7 @@ return (
                       
                    
                       <tr>
-                        <th>1</th>
+                        <th>{this.props.post.id}</th>
                         <td>{this.props.post.title}</td>
                         <td>{this.props.post.message}</td>
                         

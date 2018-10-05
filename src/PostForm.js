@@ -2,23 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class PostForm extends Component {
+   constructor(props) {
+    super(props);
+    this.state = {id: 1};
+   }  
 handleSubmit = (e) => {
-   
+
 e.preventDefault();
  const title = this.getTitle.value;
  const message = this.getMessage.value;
+  this.setState({id: this.state.id + 1 })
  const data = {
-  id: new Date(),
+  id : this.state.id,
   title,
   message,
   editing: false
  }
+//alert(this.setState({id: this.state.id + 1 }));
+ //alert(JSON.stringify(data));
  this.props.dispatch({
  type: 'ADD_POST',
  data
- })
+})
+
  this.getTitle.value = '';
  this.getMessage.value = '';
+
 }
 render() {
 return (
